@@ -1,7 +1,7 @@
 import pickle
 import streamlit as st
 st.set_page_config(page_title="Diabetes Prediction",layout="wide",page_icon="")
-diabetes_model_path = r"/home/systemadministrator/Desktop/project 1/diabetes_model.sav"
+diabetes_model_path = r"diabetes_model.sav"
 diabetes_model = pickle.load(open(diabetes_model_path,'rb'))
 st.title('Diabetes Prediction using ML')
 col1, col2, col3 = st.columns(3)
@@ -54,7 +54,7 @@ if st.button('Diabetes Test Result'):
     except ValueError:
         st.error("Please enter valid numerical values for all fields.")
 if st.button('Show Model Accuracy'):
-    test_data = pd.read_csv(r"/home/systemadministrator/Desktop/project 1/diabetes.csv")       
+    test_data = pd.read_csv(r"diabetes.csv")       
     X_test = test_data.drop(columns=["Outcome"])
     Y_test = test_data["Outcome"] 
             
